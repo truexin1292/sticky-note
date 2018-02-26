@@ -63,3 +63,9 @@ typings/
 
 
 # End of https://www.gitignore.io/api/node
+.idea/dbnavigator.xml
+.idea/inspectionProfiles/
+.idea/markdown-navigator/
+.idea/modules.xml
+.idea/sticky-note.iml
+.idea/workspace.xml

@@ -1,5 +1,5 @@
-require('sass/note.scss')
-require('sass/markdown.scss')
+require('sass/note.scss');
+require('sass/markdown.scss');
 let Toast = require('./toast.js').Toast;
 let Event = require('./event.js');
 
@@ -17,8 +17,8 @@ Note.prototype = {
         ['#c24226', '#d15a39'],
         ['#c1c341', '#d0d25c'],
         ['#3f78c3', '#5591d2'],
-        ['#766eff','#6e8aff'],
-        ['#72a857','#72a880']
+        ['#766eff', '#6e8aff'],
+        ['#72a857', '#72a880']
     ],
     defaultOpts: {
         id: '', //Note的 id
@@ -46,7 +46,6 @@ Note.prototype = {
         this.opts.$ct.append(this.$note);
         Event.fire('waterfall');
     },
-
     setColor: function () {
         let color = this.colors[Math.floor(Math.random() * 7)];
         this.$note.find(".note-head").css('background-color', color[0]);
@@ -58,7 +57,7 @@ Note.prototype = {
         if (self.clock) {
             clearTimeout(self.clock);
         }
-        self.clock = setTimeout(()=> Event.fire('waterfall'), 100);
+        self.clock = setTimeout(() => Event.fire('waterfall'), 100);
     },
     bind: function () {
         let _this = this, //记录下坑，之前末尾是分号不是逗号后面都变成了全局变量结果造成了最后一个才能修改😂
@@ -92,7 +91,7 @@ Note.prototype = {
                 x: evtX,
                 y: evtY
             }); //把事件到 dialog 边缘的距离保存下来
-        }).on('mouseup', ()=> $note.removeClass('draggable').removeData('pos'));
+        }).on('mouseup', () => $note.removeClass('draggable').removeData('pos'));
 
         $('body').on('mousemove', (e) => {
             $('.draggable').length && $('.draggable').offset({
@@ -101,11 +100,6 @@ Note.prototype = {
             });
         });
     },
-
-
-
-
-
     /* 添加笔记到数据库 */
     add: function (msg) {
         let _this = this;
@@ -154,8 +148,5 @@ Note.prototype = {
         }
     }
 }
-
-
-
 
 module.exports.Note = Note;

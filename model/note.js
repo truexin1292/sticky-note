@@ -58,6 +58,4 @@ Note.sync().then(function(){
 */
 
 
-
-
 module.exports = Note;

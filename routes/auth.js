@@ -5,7 +5,6 @@ var passport = require('passport');
 
 var GitHubStrategy = require('passport-github').Strategy;
 
-
 passport.serializeUser(function (user, done) {
     console.log('---serializeUser---')
     console.log(user)
@@ -30,11 +29,7 @@ passport.use(new GitHubStrategy({
     }
 ));
 
-
-
-
 router.get('/github', passport.authenticate('github'));
-
 
 router.get('/github/callback',
     passport.authenticate('github', {
@@ -50,8 +45,8 @@ router.get('/github/callback',
         console.log("success");
         // Successful authentication, redirect home.
         res.redirect('/');
-    });
-
+    }
+);
 
 router.get('/logout', function (req, res) {
     req.session.destroy();

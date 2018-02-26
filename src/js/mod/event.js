@@ -1,12 +1,14 @@
 /* 发布订阅模式 */
 let Event = (function () {
     let events = {};
+
     function on(evt, handler) {
         events[evt] = events[evt] || [];
         events[evt].push({
             handler: handler
         });
     }
+
     //fire 表示发布
     function fire(evt, args) {
         if (!events[evt]) {
@@ -16,10 +18,12 @@ let Event = (function () {
             events[evt][i].handler(args);
         }
     }
+
     //off 表示取消订阅
     function off(name) {
         delete events[name];
     }
+
     return {
         on: on,
         fire: fire,

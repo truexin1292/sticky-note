@@ -7,7 +7,7 @@ let NoteManager = (function () {
     function load() {
         $.get('api/notes').done((res) => {
             if (res.status === 1) {
-                $.each(res.data, (index,msg)=>{
+                $.each(res.data, (index, msg) => {
                     new Note({
                         id: msg.id,
                         context: msg.text,
@@ -19,13 +19,14 @@ let NoteManager = (function () {
             } else {
                 Toast(0, res.errorMsg);
             }
-        }).fail(()=>{
+        }).fail(() => {
             Toast(0, "网络异常");
         });
     }
+
     /* 添加笔记 */
     function add() {
-        $.get('/login').then((res)=> {
+        $.get('/login').then((res) => {
             if (res.status === 1) {
                 new Note({
                     username: res.username
