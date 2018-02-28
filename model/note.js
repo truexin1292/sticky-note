@@ -12,7 +12,7 @@ var sequelize = new Sequelize(undefined, undefined, undefined, {
 
 /* 测试连接是否成功
 node note.js
-
+*/
 sequelize.authenticate()
     .then(() => {
         console.log('Connection has been established successfully.');
@@ -20,8 +20,6 @@ sequelize.authenticate()
     .catch(err => {
         console.error('Unable to connect to the database:', err);
     });
-
-*/
 
 
 var Note = sequelize.define('note', {
@@ -46,16 +44,16 @@ Note.drop();
 
 /*
 //创建数据库
-
-Note.sync().then(function(){
-     Note.create({text:"sdsdsdsd"});
-}).then(function(){
-    //查询表
-    Note.findAll({raw:true}).then(function(notes){
-        console.log(notes);
-    })
-});
 */
-
+Note.sync()
+    .then(() => {
+        Note.create({ text: "truexin-test" });
+    })
+    .then(() => {
+        //查询表
+        Note.findAll({ raw: true }).then((notes) => {
+            console.log(notes);
+        })
+    });
 
 module.exports = Note;

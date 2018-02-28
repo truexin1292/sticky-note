@@ -73,9 +73,7 @@ router.post('/notes/add', function (req, res, next) {
     });
 });
 
-
 /* 编辑 */
-
 router.post('/notes/edit', function (req, res, next) {
     if (!req.session || !req.session.user) {
         return res.send({
