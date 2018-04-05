@@ -59,3 +59,39 @@ http://localhost:3666/
 * `sequelize`(Node的ORM框架Sequelize操作数据库)
 * `passport`(实现第三方登录)
 
+### 在根目录,创建 processes.json 配置文件,配置文件内容如下:
+* 在package.json中增加了一条 "pm2": "pm2 start processes.json"
+* 在启动就直接输入如下命令就好：
+$ npm run pm2
+```
+{
+    "apps": [
+        {
+            "name": "sticky-note",
+            //名称
+            "script": "./bin/www",
+            //程序入库
+            "cwd": "./",
+            //根目录
+            "watch": [
+                "bin",
+                "database",
+                "model",
+                "public",
+                "routes",
+                "views"
+            ],
+            //需要监控的目录
+            "error_file": "./logs/app-err.log",
+            //错误输出日志
+            "out_file": "./logs/app-out.log",
+            //日志
+            "log_date_format": "YYYY-MM-DD HH:mm Z"
+            //日期格式
+        }
+    ]
+}
+
+```
+
+
