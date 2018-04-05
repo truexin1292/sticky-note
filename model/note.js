@@ -46,9 +46,9 @@ Note.drop();
 //创建数据库
 */
 Note.sync()
-    .then(() => {
-        Note.create({ text: "truexin-test" });
-    })
+    // .then(() => {
+    //     Note.create({ text: "truexin-test" });
+    // })
     .then(() => {
         //查询表
         Note.findAll({ raw: true }).then((notes) => {

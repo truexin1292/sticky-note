@@ -19,7 +19,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new GitHubStrategy({//self
         clientID: 'eb8398ba9222613cb427',
         clientSecret: 'd11260941b31d8b571b7ddbcae83e3bad429b351',
-        callbackURL: "http://github.truexinology.site/auth/github/callback"
+        callbackURL: "http://www.truexinology.site/auth/github/callback"
     },
      (accessToken, refreshToken, profile, cb)=> {
         User.findOrCreate({ githubId: profile.id }, function (err, user) {
